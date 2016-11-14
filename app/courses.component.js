@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.service', './auto-grow.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.service'], function(exports_1, cont
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_service_1;
+    var core_1, courses_service_1, auto_grow_directive_1;
     var CoursesComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', './courses.service'], function(exports_1, cont
             },
             function (courses_service_1_1) {
                 courses_service_1 = courses_service_1_1;
+            },
+            function (auto_grow_directive_1_1) {
+                auto_grow_directive_1 = auto_grow_directive_1_1;
             }],
         execute: function() {
             CoursesComponent = (function () {
@@ -29,8 +32,9 @@ System.register(['angular2/core', './courses.service'], function(exports_1, cont
                 CoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'courses',
-                        template: '<h2>Hi I am courses</h2>{{ title }}<ul><li *ngFor="#course of courses">{{course}}</li></ul>',
-                        providers: [courses_service_1.CourseService]
+                        template: '<h2>Hi I am courses</h2>{{ title }}<ul><li *ngFor="#course of courses">{{course}}</li></ul><input autoGrow />',
+                        providers: [courses_service_1.CourseService],
+                        directives: [auto_grow_directive_1.AutoGrowDirective]
                     }), 
                     __metadata('design:paramtypes', [courses_service_1.CourseService])
                 ], CoursesComponent);

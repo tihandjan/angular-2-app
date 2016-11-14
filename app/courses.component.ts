@@ -1,13 +1,20 @@
 import {Component} from 'angular2/core';
 import {CourseService} from './courses.service';
-import {AutoGrowDirective} from './auto-grow.directive'
+import {AutoGrowDirective} from './auto-grow.directive';
+import {StarChangeComponent} from './star.component';
+
 
 
 @Component ({
 	selector: 'courses',
-	template: '<h2>Hi I am courses</h2>{{ title }}<ul><li *ngFor="#course of courses">{{course}}</li></ul><input autoGrow />',
+	template: `
+	<h2>Hi I am courses</h2>{{ title }}
+	<ul><li *ngFor="#course of courses">{{course}}</li></ul>
+	<input [(ngModel)]="title" autoGrow />Preview: {{title}}
+	<star></star>
+	`,
 	providers: [CourseService],
-	directives: [AutoGrowDirective]
+	directives: [AutoGrowDirective, StarChangeComponent]
 })
 
 export class CoursesComponent {

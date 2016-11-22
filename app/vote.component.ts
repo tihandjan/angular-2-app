@@ -1,4 +1,4 @@
-import { Component, Input } from 'angular2/core';
+import { Component, Input, Output, EventEmitter } from 'angular2/core';
 
 @Component ({
     selector: 'vote',
@@ -13,16 +13,20 @@ import { Component, Input } from 'angular2/core';
 export class VoteComponent {
     @Input() votes = 0;
     @Input() ivote = 1;
+    @Output() vote = new EventEmitter;
+
     onClickUp(){
         if (this.ivote >= 0 && this.ivote < 2) {
             this.votes ++;
             this.ivote ++;
+            this.vote.emit({ivote: this.ivote})
         }
     }
     onClickDown(){
         if (this.ivote > 0 && this.ivote <= 2) {
             this.votes --;
             this.ivote --;
+            this.vote.emit({ivote: this.ivote})
         }
     }
 }

@@ -6,7 +6,7 @@ import {VoteComponent} from './vote.component';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1><courses></courses><authors></authors><heart [amount]="post.amount" [choiceMade]="post.choiceMade"></heart><vote [votes]="vote.votes" [ivote]="vote.ivote" ></vote>',
+    template: '<h1>My First Angular 2 App</h1><courses></courses><authors></authors><heart [amount]="post.amount" [choiceMade]="post.choiceMade"></heart><vote [votes]="vote.votes" [ivote]="vote.ivote" (vote)="onVote($event)"></vote>',
     directives: [CoursesComponent, AuthorsComponent, HeartComponent, VoteComponent]
 })
 export class AppComponent {
@@ -18,6 +18,10 @@ export class AppComponent {
     vote = {
         votes: 0,
         ivote: 1
+    }
+
+    onVote($event){
+        console.log($event.ivote);
     }
 }
 

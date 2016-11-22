@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './authors.component', './heart.component', './vote.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.component', './authors.component', './heart.component', './vote.component', './twitter.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.component', './authors.component', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, authors_component_1, heart_component_1, vote_component_1;
+    var core_1, courses_component_1, authors_component_1, heart_component_1, vote_component_1, twitter_component_1;
     var AppComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['angular2/core', './courses.component', './authors.component', 
             },
             function (vote_component_1_1) {
                 vote_component_1 = vote_component_1_1;
+            },
+            function (twitter_component_1_1) {
+                twitter_component_1 = twitter_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -47,8 +50,8 @@ System.register(['angular2/core', './courses.component', './authors.component', 
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>My First Angular 2 App</h1><courses></courses><authors></authors><heart [amount]="post.amount" [choiceMade]="post.choiceMade"></heart><vote [votes]="vote.votes" [ivote]="vote.ivote" (vote)="onVote($event)"></vote>',
-                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, heart_component_1.HeartComponent, vote_component_1.VoteComponent]
+                        template: '<h1>My First Angular 2 App</h1><courses></courses><authors></authors><heart [amount]="post.amount" [choiceMade]="post.choiceMade"></heart><vote [votes]="vote.votes" [ivote]="vote.ivote" (vote)="onVote($event)"></vote><tweeter></tweeter>',
+                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, heart_component_1.HeartComponent, vote_component_1.VoteComponent, twitter_component_1.TwitterComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

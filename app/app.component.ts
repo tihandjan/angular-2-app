@@ -3,11 +3,12 @@ import {CoursesComponent} from './courses.component';
 import {AuthorsComponent} from './authors.component';
 import  {HeartComponent} from './heart.component';
 import {VoteComponent} from './vote.component';
+import {TwitterComponent} from './twitter.component';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1><courses></courses><authors></authors><heart [amount]="post.amount" [choiceMade]="post.choiceMade"></heart><vote [votes]="vote.votes" [ivote]="vote.ivote" (vote)="onVote($event)"></vote>',
-    directives: [CoursesComponent, AuthorsComponent, HeartComponent, VoteComponent]
+    template: '<h1>My First Angular 2 App</h1><courses></courses><authors></authors><heart [amount]="post.amount" [choiceMade]="post.choiceMade"></heart><vote [votes]="vote.votes" [ivote]="vote.ivote" (vote)="onVote($event)"></vote><tweeter></tweeter>',
+    directives: [CoursesComponent, AuthorsComponent, HeartComponent, VoteComponent, TwitterComponent]
 })
 export class AppComponent {
 	post = {

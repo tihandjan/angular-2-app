@@ -1,29 +1,21 @@
 import { Component, Input } from 'angular2/core';
 import { TwiterService } from './tweeter.service';
+import { TweetComponent } from './tweet.component';
 
 @Component ({
     selector: 'tweeter',
     template: `
-        <ul class="media-list">
-            <li class="media" *ngFor="#twitt of twitts">
-                <div class="media-left">
-                <a href="#">
-                    <img class="media-object" src="..." alt="...">
-                </a>
-                </div>
-                <div class="media-body">
-                <h4 class="media-heading">Media heading</h4>
-                {{twitt}}
-                </div>
-            </li>
+        <ul class="media-list" *ngFor="#data of twitts">
+            <tweet [data]="data"></tweet>
         </ul>
     `,
+    directives: [TweetComponent],
     providers: [TwiterService]
 
 })
 
 export class TwitterComponent {
-    twitts;
+    twitts: any[];
     constructor(twiterService: TwiterService) {
         this.twitts = twiterService.getTweets();
     }

@@ -1,0 +1,18 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
+    <div class="form-group">
+        <label for="userName"></label>
+        <input class="form-control" ngControl="userName" #userName="ngForm" type="text" id="userName" required minlength="3">
+        <div class="alert alert-danger" *ngIf="userName.touched && userName.errors && userName.errors.minlength">Minlength should be more than 3 charecter</div>
+    </div>
+    <div class="form-group">
+        <label for="userEmail"></label>
+        <input class="form-control" ngControl="userEmail" #userEmail="ngForm" type="imail" id="userEmail" required minlength="6">
+        <div class="alert alert-danger" *ngIf="userEmail.touched && userEmail.errors && userEmail.errors.minlength">Minlength should be more than 6 charecter</div>
+    </div>
+    <div class="form-group">
+        <label for="message"></label>
+        <textarea class="form-control" ngControl="message" #message="ngForm" type="text" rows="10" cols="3" id="message" required minlength="10"></textarea>
+        <div class="alert alert-danger" *ngIf="message.touched && message.errors && message.errors.minlength">Minlength should be more than 10 charecter</div>
+    </div>
+    <button type="submit" [disabled]="!f.valid"  class="btn btn-primary">Send</button>
+</form>

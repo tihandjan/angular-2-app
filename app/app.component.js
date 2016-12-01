@@ -1,4 +1,4 @@
-System.register(['angular2/core', './zippy.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './zippy.component', './form.controller'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './zippy.component'], function(exports_1, cont
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, zippy_component_1;
+    var core_1, zippy_component_1, form_controller_1;
     var AppComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', './zippy.component'], function(exports_1, cont
             },
             function (zippy_component_1_1) {
                 zippy_component_1 = zippy_component_1_1;
+            },
+            function (form_controller_1_1) {
+                form_controller_1 = form_controller_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -27,8 +30,8 @@ System.register(['angular2/core', './zippy.component'], function(exports_1, cont
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>My First Angular 2 App</h1><zippy title="Who ae you beach?">I am not you</zippy><zippy title="What you can do for me?">Everything what you want to have</zippy>',
-                        directives: [zippy_component_1.ZippyComponent]
+                        template: '<h1>My First Angular 2 App</h1><zippy title="Who ae you beach?">I am not you</zippy><zippy title="What you can do for me?">Everything what you want to have</zippy><my-form></my-form>',
+                        directives: [zippy_component_1.ZippyComponent, form_controller_1.FormController]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

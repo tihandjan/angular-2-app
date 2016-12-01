@@ -1,28 +1,9 @@
 import {Component} from 'angular2/core';
-import {CoursesComponent} from './courses.component';
-import {AuthorsComponent} from './authors.component';
-import  {HeartComponent} from './heart.component';
-import {VoteComponent} from './vote.component';
-import {TwitterComponent} from './twitter.component';
+import { ZippyComponent } from './zippy.component';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1><courses></courses><authors></authors><heart [amount]="post.amount" [choiceMade]="post.choiceMade"></heart><vote [votes]="vote.votes" [ivote]="vote.ivote" (vote)="onVote($event)"></vote><tweeter></tweeter>',
-    directives: [CoursesComponent, AuthorsComponent, HeartComponent, VoteComponent, TwitterComponent]
+    template: '<h1>My First Angular 2 App</h1><zippy title="Who ae you beach?">I am not you</zippy><zippy title="What you can do for me?">Everything what you want to have</zippy>',
+    directives: [ZippyComponent]
 })
-export class AppComponent {
-	post = {
-        choiceMade: true,
-        amount: 10
-    }
-
-    vote = {
-        votes: 0,
-        ivote: 1
-    }
-
-    onVote($event){
-        console.log($event.ivote);
-    }
-}
-
+export class AppComponent { }

@@ -1,4 +1,6 @@
 import { Component } from 'angular2/core';
+import { ControlGroup, Validators, Control, FormBuilder } from 'angular2/common';
+import { UsernameValidator } from './usernameValidator';
 
 @Component({
     selector: 'my-form',
@@ -17,7 +19,14 @@ import { Component } from 'angular2/core';
 })
 
 export class FormController {
-    log(x){
-        console.log(x);
+    form: ControlGroup;
+    constructor(fb: FormBuilder) {
+        this.form = fb.group({
+            username: ['', Validators.required],
+            password: ['', Validators.compose([
+                Validators.required,
+                UsernameValidator.cannotContainSpace
+            ])]
+        })
     }
 }

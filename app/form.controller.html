@@ -1,4 +1,4 @@
-<form [ngFormModel]="form" (ngSubmit)="signUp()">
+<form [ngFormModel]="form" (ngSubmit)="submit()">
     <div class="form-group">
         <label for="username">Username</label>
         <input 
@@ -8,7 +8,9 @@
             type="text" 
             class="form-control">
     </div>
-    <div *ngIf="!username.valid && username.touched" class="alert alert-danger">This field is required</div>
+    <div class="alert alert-danger" *ngIf="username.touched && !username.valid">Username field is required</div>
+    <div class="alert alert-danger" *ngIf="username.errors && username.errors.shouldBeUnique">Shouls be uniq</div>
+    <div class="alert alert-danger" *ngIf="username.control.pending">Checking...</div>
     <div class="form-group">
         <label for="password">Password</label>
         <input 
@@ -18,6 +20,7 @@
             type="text" 
             class="form-control">
     </div>
-    <div *ngIf="password.errors.cannotContainSpace" class="alert alert-danger">This field is required</div>
-    <button [disabled]="!form.valid" class="btn btn-primary" type="submit">Sign Up</button>
+    <div class="alert alert-danger" *ngIf="password.touched && !password.valid">Password field is required</div>
+    <div class="alert alert-danger" *ngIf="password.errors && password.errors.cannotContainSpace">Password field cannotContainSpace</div>
+    <button class="btn btn-primary" [disabled]="!form.valid" type="submit">Sign Up</button>
 </form>
